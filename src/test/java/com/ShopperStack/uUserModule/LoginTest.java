@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 public class LoginTest {
 	public WebDriver driver;
-	@Test
+	@Test(priority = 1)
 	public void testLogin() {
 		String browser=System.getProperty("BROWSER");
 		if (browser.equalsIgnoreCase("chrome")) {
@@ -29,6 +29,17 @@ public class LoginTest {
 		driver.findElement(By.id("Password")).sendKeys("Password@123");
 		driver.findElement(By.xpath("//span[text()='Login']")).click();
 		System.out.println(driver.getTitle());
+		
+	}
+	
+	@Test(priority = 2)
+	public void addToCart() {
+		driver.findElement(By.id("men")).click();
+		driver.findElement(By.xpath("//div[@class='cat_box__FUszw']/descendant::button[.='add to cart'][1]")).click();
+	}
+	
+	@Test(priority = 3)
+	public void logout() {
 		driver.findElement(By.xpath("//div[text()='A']")).click();
 		driver.findElement(By.xpath("//li[.='Logout']")).click();
 		driver.quit();

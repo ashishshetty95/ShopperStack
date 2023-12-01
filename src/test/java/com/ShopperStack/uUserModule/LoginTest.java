@@ -12,16 +12,16 @@ public class LoginTest {
 	public WebDriver driver;
 	@Test(priority = 1)
 	public void testLogin() {
-		String browser=System.getProperty("BROWSER");
-		if (browser.equalsIgnoreCase("chrome")) {
+		//String browser=System.getProperty("BROWSER");
+		//if (browser.equalsIgnoreCase("chrome")) {
 			driver=new ChromeDriver();
-		}
-		else if (browser.equalsIgnoreCase("edge")) {
+		//}
+		/*else if (browser.equalsIgnoreCase("edge")) {
 			driver=new EdgeDriver();
 		}
 		else {
 			driver=new ChromeDriver();
-		}
+		}*/
 		driver.get("https://www.shoppersstack.com/");
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		driver.findElement(By.id("loginBtn")).click();
